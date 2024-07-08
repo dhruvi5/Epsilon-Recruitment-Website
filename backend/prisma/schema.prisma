@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id                 String               @id @default(uuid())
+  username           String               @unique
+  password           String
+  isMember           Boolean
+  membershipTier     String               @default("")
+  balance            Int
+  donations          donations[]
+  eventRegistrations eventRegistrations[]
+  userStoris         userStoris[]
+}
+
+model admin {
+  id        String @id @default(uuid())
+  adminname String @unique
+  password  String
+}
+
+model events {
+  id                 String               @id @default(uuid())
+  eventname          String
+  registrationFee    Int
+  description        String
+  location           String
+  time               String
+  date               String
+  eventRegistrations eventRegistrations[]
+}
+
+model donations {
+  id      String @id @default(uuid())
+  user_id String
+  doner   user   @relation(fields: [user_id], references: [id])
+}
+
+model eventRegistrations {
+  eventId String
+  userId  String
+  event   events @relation(fields: [eventId], references: [id])
+  user    user   @relation(fields: [userId], references: [id])
+
+  @@id([eventId, userId])
+}
+
+model userStoris {
+  id      String @id @default(uuid())
+  userId  String
+  content String
+  user    user   @relation(fields: [userId], references: [id])
+  @@map("userStories")
+}
