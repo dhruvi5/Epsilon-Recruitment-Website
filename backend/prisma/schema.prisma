@@ -17,9 +17,9 @@ model user {
   id                 String               @id @default(uuid())
   username           String               @unique
   password           String
-  isMember           Boolean
+  isMember           Boolean              @default(false)
   membershipTier     String               @default("")
-  balance            Int
+  balance            Int                  @default(5000)
   donations          donations[]
   eventRegistrations eventRegistrations[]
   userStoris         userStoris[]

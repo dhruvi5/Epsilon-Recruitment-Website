@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "user" ALTER COLUMN "isMember" SET DEFAULT false,
+ALTER COLUMN "balance" SET DEFAULT 5000;
