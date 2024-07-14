@@ -5,7 +5,6 @@ import {
   MembershipRequest,
 } from "../../middlewares/membershipPurchase";
 import dotenv from "dotenv";
-import { warn } from "console";
 import prisma from "../../client";
 
 dotenv.config();
@@ -29,8 +28,6 @@ app.post(
       });
     }
 
-    // we will have to extract the username and password
-    // should I check if the current balance is enough here or in the middleware?
     const currentBalance = req.currentBalance;
 
     if (!currentBalance) {
