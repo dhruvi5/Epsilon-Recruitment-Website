@@ -4,10 +4,8 @@ import {
   membershipPurchaseMiddleware,
   MembershipRequest,
 } from "../../middlewares/membershipPurchase";
-import dotenv from "dotenv";
 import prisma from "../../client";
 
-dotenv.config();
 
 const app = Router();
 
@@ -31,9 +29,10 @@ app.post(
     const currentBalance = req.currentBalance;
 
     if (!currentBalance) {
-      res.status(500);
+      console.log(currentBalance)
+      res.status(404);
       return res.json({
-        message: "Something went wrong please try again!!",
+        message: "Not enough balance",
       });
     }
 
@@ -63,12 +62,13 @@ app.post(
       });
       res.json(result);
     } catch (error) {
+      console.log(error);
       res.status(500);
       return res.json({
         message: "Something went wrong!!!",
       });
     }
-  },
+  }
 );
 
 export = app;

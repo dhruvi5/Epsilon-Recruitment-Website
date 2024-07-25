@@ -6,7 +6,6 @@ import prisma from "../../client";
 const app = Router();
 dotenv.config(); //parse the .env file into the app
 const jwtKey = process.env.JWT_KEY; //extracting the jwt key from the .env
-
 //Sign up request from user
 app.post("/signup", async (req, res) => {
   const username:string = req.body.username;
@@ -42,7 +41,7 @@ app.post("/signup", async (req, res) => {
     console.log(error)
     res.status(403);
     return res.json({
-      message: "A user with this username already exists!!",
+      message: "Something went wrong please try again!!",
     });
   }
 });

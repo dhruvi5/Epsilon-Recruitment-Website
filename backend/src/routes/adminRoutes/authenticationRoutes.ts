@@ -1,7 +1,7 @@
 import { Router } from "express";
-import prisma from "../../client";
 import * as jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import prisma from "../../client";
 
 const app = Router();
 dotenv.config();

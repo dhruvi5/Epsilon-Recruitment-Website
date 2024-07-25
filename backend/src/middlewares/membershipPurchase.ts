@@ -38,8 +38,8 @@ export const membershipPurchaseMiddleware = async (
       return res.json({ message: "Unauthorized access!!" });
     }
 
-    //First check if the user already is a member
-    if (result.isMember) {
+    //First check if the user already is a member and if they have the same membership tier
+    if (result.isMember && result.membershipTier === membershipTier) {
       res.status(202);
       return res.json({
         message: "User is a member already!!",
@@ -55,13 +55,14 @@ export const membershipPurchaseMiddleware = async (
       res.status(400);
       return res.json({
         message:
-          "Invalid membership tier. Please send a valid tier from : BASIC, MEDIUM, PREMIUM",
+          "invalid membership tier. please send a valid tier from : basic, medium, premium",
       });
     }
 
     req.currentBalance = result.balance;
     next();
   } catch (error) {
+    console.log(error);
     res.status(500);
     return res.json({ message: "Something went wrong!!" });
   }
