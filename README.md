@@ -7,9 +7,9 @@ Welcome to the Epsilon Recruitment Website, the codebase where recruitment dream
 ---
 
 ## 📖 Table of Contents
-1. [About the Project](#about-the-project)
-2. [How to Run](#how-to-run)
-3. [Features](#features)
+1. [About the Project](##about-the-project)
+2. [How to Run](##how-to-run)
+3. [Features](##Features)
 4. [Folder Structure](#folder-structure)
 5. [Developer Notes](#developer-notes)
 6. [Contributing](#contributing)
@@ -20,7 +20,7 @@ Welcome to the Epsilon Recruitment Website, the codebase where recruitment dream
 The ERW is not just another recruitment platform. It's a revolutionary system where:
 - Admins reign supreme (with their mighty JWT tokens).
 - Users are rewarded for existing with a starting balance of 5000 fake bucks.
-- Events are created, managed, and priced so ambitiously you’d think they’re selling Beyoncé tickets.
+- Events are created, managed, and priced so ambitiously you’d think they’re selling Coldplay tickets.
 
 ---
 
