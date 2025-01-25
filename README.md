@@ -1,5 +1,3 @@
-Here’s a funny README file for your codebase:
-
 ---
 
 # 🚀 Epsilon Recruitment Website (ERW)
